@@ -12,6 +12,11 @@
 document.getElementById("zeros").addEventListener("click", zeros);
 document.getElementById("vertex").addEventListener("click", vertex);
 document.getElementById("rectangle_volume").addEventListener("click", rectangle_volume)
+document.getElementById("surface_area").addEventListener("click", surface_area)
+document.getElementById("sphere_volume").addEventListener("click", sphere_volume)
+document.getElementById("sphere_area").addEventListener("click", sphere_area)
+document.getElementById("slope_x").addEventListener("click", slope_slope)
+document.getElementById("length_xxx").addEventListener("click", distance_distance)
 
 /*** Functions ***/
 
@@ -39,6 +44,59 @@ function length(x1, y1, x2, y2){
     return x
 }
 
+function surface_area(){
+    let a = Number(document.getElementById("width").value)
+    let b = Number(document.getElementById("height").value)
+    let c = Number(document.getElementById("length").value)
+    let answer = (2*((c * a) + (c * b) + (b * a)))
+    document.getElementById("answer_of_surface").textContent = `The surface area is ${answer}`
+}
+
+function sphere_volume(){
+    let a = Number(document.getElementById("radius").value)
+    let answer = (Math.PI * (a **2))
+    document.getElementById("sphere_button_volume").textContent = `The volume of the sphere is ${answer}`
+}
+
+function rectangle_volume(){
+    let a = Number(document.getElementById("width").value)
+    let b = Number(document.getElementById("height").value)
+    let c = Number(document.getElementById("length").value)
+    let answer = a * b * c
+    document.getElementById("answer_of_thing").textContent = `The area is ${answer}`
+}
+
+function sphere_area(){
+    let a = Number(document.getElementById("radius").value)
+    let answer = (4 * Math.PI * (a**2))
+    document.getElementById("sphere_area_span").textContent = `The surface area of the sphere is ${answer}`
+}   
+
+function slope_slope(){
+    let x1 = Number(document.getElementById("x1").value)
+    let x2 = Number(document.getElementById("x2").value)
+    let y1 = Number(document.getElementById("y1").value)
+    let y2 = Number(document.getElementById("y2").value)
+    let answer = ((y2-y1)/(x2-x1))
+    document.getElementById("slope_xx").textContent = `The slope ${answer}`
+}
+
+function distance_distance(){
+    let x1 = Number(document.getElementById("x1").value)
+    let x2 = Number(document.getElementById("x2").value)
+    let y1 = Number(document.getElementById("y1").value)
+    let y2 = Number(document.getElementById("y2").value)
+    let answer_1 = (delta(x2, x1))**2
+    let answer_2 = (delta(y2, y1))**2
+    let answer_full_1 = Math.sqrt(answer_1 + answer_2)
+    document.getElementById("slope_xx").textContent = `The length of the line is ${answer_full_1}`
+}
+
+    
+    
+    
+
+
 
 
 // Round to the nearest `decimals` number of decimals
@@ -60,13 +118,10 @@ function y_quad(a, b, c, x) {
     return thing
 }
 
-function rectangle_volume(){
-    let a = Number(document.getElementById("width").value)
-    let b = Number(document.getElementById("height").value)
-    let c = Number(document.getElementById("length").value)
-    let answer = a * b * c
-    document.getElementById("answer_of_thing").textContent = `The area is ${answer}`
-}
+
+
+
+
 
 
 // Determine the zeros of a quadratic using user-inputs for a, b, and c
@@ -77,4 +132,3 @@ function zeros() {
 function vertex() {
 
 }
-
