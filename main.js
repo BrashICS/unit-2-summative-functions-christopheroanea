@@ -17,6 +17,7 @@ document.getElementById("sphere_volume").addEventListener("click", sphere_volume
 document.getElementById("sphere_area").addEventListener("click", sphere_area)
 document.getElementById("slope_x").addEventListener("click", slope_slope)
 document.getElementById("length_xxx").addEventListener("click", distance_distance)
+document.getElementById("midpoint_xxxx").addEventListener("click", mid_point)
 
 /*** Functions ***/
 
@@ -88,11 +89,20 @@ function distance_distance(){
     let y2 = Number(document.getElementById("y2").value)
     let answer_1 = (delta(x2, x1))**2
     let answer_2 = (delta(y2, y1))**2
-    let answer_full_1 = Math.sqrt(answer_1 + answer_2)
+    let answer_full_1 = round_user(Math.sqrt(answer_1 + answer_2))
     document.getElementById("slope_xx").textContent = `The length of the line is ${answer_full_1}`
 }
 
-    
+    function mid_point(){
+    let x1 = Number(document.getElementById("x1").value)
+    let x2 = Number(document.getElementById("x2").value)
+    let y1 = Number(document.getElementById("y1").value)
+    let y2 = Number(document.getElementById("y2").value)
+    let answer_1 = ((x1 + x2) / 2)
+    let answer_2 = ((y1 + y2) / 2)
+    document.getElementById("slope_xx").textContent = `The mid point of x1 and x2 is ${answer_1}, the midpoint of y1 and y2 is ${answer_2}`
+    }
+
     
     
 
