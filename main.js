@@ -18,6 +18,8 @@ document.getElementById("sphere_area").addEventListener("click", sphere_area)
 document.getElementById("slope_x").addEventListener("click", slope_slope)
 document.getElementById("length_xxx").addEventListener("click", distance_distance)
 document.getElementById("midpoint_xxxx").addEventListener("click", mid_point)
+document.getElementById("zeros").addEventListener("click", zeros)
+document.getElementById("vertex").addEventListener("click", vertex)
 
 /*** Functions ***/
 
@@ -56,7 +58,8 @@ function surface_area(){
 function sphere_volume(){
     let a = Number(document.getElementById("radius").value)
     let answer = (Math.PI * (a **2))
-    document.getElementById("sphere_button_volume").textContent = `The volume of the sphere is ${answer}`
+    let answer_1 = round_user(answer)
+    document.getElementById("sphere_button_volume").textContent = `The volume of the sphere is ${answer_1}`
 }
 
 function rectangle_volume(){
@@ -70,7 +73,8 @@ function rectangle_volume(){
 function sphere_area(){
     let a = Number(document.getElementById("radius").value)
     let answer = (4 * Math.PI * (a**2))
-    document.getElementById("sphere_area_span").textContent = `The surface area of the sphere is ${answer}`
+    let answer_1 = round_user(answer)
+    document.getElementById("sphere_area_span").textContent = `The surface area of the sphere is ${answer_1}`
 }   
 
 function slope_slope(){
@@ -136,9 +140,26 @@ function y_quad(a, b, c, x) {
 
 // Determine the zeros of a quadratic using user-inputs for a, b, and c
 function zeros() {
+    let a = Number(document.getElementById("a").value)
+    let b = Number(document.getElementById("b").value)
+    let c = Number(document.getElementById("c").value)
+    let x1 = ((-b + (Math.sqrt(b**2 - (4 * a * c)))) / 2)
+    let x2 = ((-b - (Math.sqrt(b**2 - (4 * a * c)))) / 2)
+    let round_1 = (round_user(x1))
+    let round_2 = (round_user(x2))
+    document.getElementById("zeros_id").textContent = `The zeros are ${round_1} and ${round_2}`
 }
 
 // Determine the vertex of a quadratic using user-inputs for a, b, and c
 function vertex() {
-
+    let a = Number(document.getElementById("a").value)
+    let b = Number(document.getElementById("b").value)
+    let c = Number(document.getElementById("c").value)
+    let x_vertex = (-b /( 2 * a))   
+    let d = ((b**2) - (4 * a * c))
+    let y_vertex = (-d / (4 * a))
+    let x_answer = round_user(x_vertex)
+    let y_answer = round_user(y_vertex)
+    document.getElementById("zeros_id").textContent = `The vertex's are ${x_answer} and ${y_answer}`
+    console.log("ddddddd")
 }
